@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Products | Red Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.png" width="125px"></a>
+    </div>
+    
+    <nav>
+      <ul id="MenuItems">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="account.html">Account</a></li>
+      </ul>
+    </nav>
+    <a href="cart.html" style="position: relative; display: inline-block; margin-left: 20px;">
+  <img src="images/cart.png" width="30px" height="30px">
+  <div class="cart-count" id="cart-count" style="
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: crimson;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 14px;
+    font-weight: bold;
+    user-select: none;
+  ">0</div>
+</a>
+<img src="images/menu.png" class="menu-icon" onclick="toggleMenu()">
+
+    
+
+  </div>
+</div>
+
+
+
+  <!-- All products already listed above -->
+
+  <div class="row">
+
+    <div class="col-4">
+        <a href="product-details.html"><img src="images/product-1.jpg"></a>
+        <a href="product-details.html"><h4>Red Printed T-Shirt</h4></a>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star-half-alt" style="color: #ff3d00;"></i>
+            <i class="far fa-star" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;349.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <img src="images/product-2.jpg">
+        <h4>Black HRX Shoe</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;2,199.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <img src="images/product-3.jpg">
+        <h4>Gray Cotton Jogger</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star-half-alt" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;799.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <img src="images/product-4.jpg">
+        <h4>Blue Printed T-Shirt</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="far fa-star" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;379.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-4">
+        <img src="images/product-5.jpg">
+        <h4>High Cut Wolf Shoe</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star-half-alt" style="color: #ff3d00;"></i>
+            <i class="far fa-star" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;2,499.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <img src="images/product-6.jpg">
+        <h4>Puma Printed T-Shirt</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;549.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <img src="images/product-7.jpg">
+        <h4>HRX Socks</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star-half-alt" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;199.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <img src="images/product-8.jpg">
+        <h4>Black Fossil Watch</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;5,799.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+
+       <div class="row">
+
+    <div class="col-4">
+        <img src="images/product-9.jpg">
+        <h4>Black Yellow Roadster Watch</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star-half-alt" style="color: #ff3d00;"></i>
+            <i class="far fa-star" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;1,499.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <img src="images/product-10.jpg">
+        <h4>Red Black X Shoe</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;2,199.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <img src="images/product-11.jpg">
+        <h4>Silver Gray Shoe</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star-half-alt" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;1,899.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <img src="images/product-12.jpg">
+        <h4>Black Nike Pants</h4>
+        <div class="rating">
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+            <i class="fas fa-star" style="color: #ff3d00;"></i>
+        </div>
+        <p>&#8369;1,299.00</p>
+        <div>
+            <button class="add-to-cart" onclick="addToCart(this)">
+                <a href="" style="text-decoration: none; color: white;">Add to Cart</a>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo-center">
+    <img src="images/logo-white.png" alt="Redstore Logo">
+  </div>
+
+  <div class="container">
+    <div class="footer-col-1">
+      <h3>Download Our App</h3>
+      <p>Download App for Android and iOS mobile phones.</p>
+      <div class="app-logo">
+        <img src="images/play-store.png" alt="Play Store">
+        <img src="images/app-store.png" alt="App Store">
+      </div>
+    </div>
+
+    <div class="footer-col-2">
+      <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+    </div>
+    <br>
+<!-- Centered Wrapper -->
+<div style="width: 100%; display: flex; justify-content: center; background-color: #222;">
+
+  <div id="flexfoot" style="display: flex; justify-content: space-around; padding: 30px; background-color: #222; color: white; font-family: Arial, sans-serif; max-width: 900px; width: 100%;">
+
+    <!-- Useful Links Column -->
+    <div class="footer-col-3" style="flex: 1; margin: 0 20px;">
+      <h3 style="margin-bottom: 15px; font-size: 18px; color: #fff;">Useful Links</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Coupons</a></li><br>
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Blog Post</a></li><br>
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Return Policy</a></li><br>
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Join Affiliate</a></li>
+      </ul>
+    </div>
+
+    <!-- Follow Us Column -->
+    <div class="footer-col-4" style="flex: 1; margin: 0 20px;">
+      <h3 style="margin-bottom: 15px; font-size: 18px; color: #fff;">Follow Us</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://www.facebook.com/login/" target="_blank" style="text-decoration: none; color: #ccc;">Facebook</a></li><br>
+        <li><a href="https://www.instagram.com/accounts/login/" target="_blank" style="text-decoration: none; color: #ccc;">Instagram</a></li><br>
+        <li><a href="https://twitter.com/login" target="_blank" style="text-decoration: none; color: #ccc;">Twitter</a></li><br>
+        <li><a href="https://accounts.google.com/ServiceLogin?service=youtube" target="_blank" style="text-decoration: none; color: #ccc;">YouTube</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+
+</div>
+  <hr>
+  <p class="copyright">&copy; 2025 Redstore Athletic Choice. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+  var MenuItems = document.getElementById("MenuItems");
+  MenuItems.style.maxHeight = "0px";
+
+  function toggleMenu() {
+    if (MenuItems.style.maxHeight === "0px") {
+      MenuItems.style.maxHeight = "200px";
+    } else {
+      MenuItems.style.maxHeight = "0px";
+    }
+  }
+
+  function addToCart(button) {
+    
+    const product = button.closest('.col-4');
+    const name = product.querySelector('h4').innerText;
+    const price = product.querySelector('p').innerText.replace('₱', '');
+    const image = product.querySelector('img').src;
+
+  
+    const item = {
+      name: name,
+      price: parseFloat(price),
+      image: image,
+      quantity: 1
+    };
+
+  
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  
+    const existing = cart.find(i => i.name === item.name);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push(item);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert("✅ Product added to cart!");
+  }
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+      cartCount.textContent = count;
+    }
+  }
+  updateCartCount();
+</script>
+
+
+</body>
+</html>

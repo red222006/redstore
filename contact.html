@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts | Red Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li> <a href="index.html">Home</a></li>
+                    <li> <a href="product.html">Products</a></li>
+                    <li> <a href="about.html">About</a></li>
+                    <li> <a href="contact.html">Contact</a></li>
+                    <li> <a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            
+            <img src="images/menu.png" class="menu-icon" onclick="toggleMenu()">
+        </div>
+    </div>
+
+
+
+
+    <section class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>If you have questions, feedback, or collaboration ideas, we’d love to hear from you.</p>
+    
+        <form class="contact-form" action="#" method="post">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first-name" required />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last-name" required />
+            </div>
+          </div>
+    
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="number" id="phone" name="phone" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+    
+          <div class="form-group full-width">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+    
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+
+
+
+
+
+  <!--------------------------------- footer --------------------------------->
+  <footer class="footer">
+  <div class="footer-logo-center">
+    <img src="images/logo-white.png" alt="Redstore Logo">
+  </div>
+
+  <div class="container">
+    <div class="footer-col-1">
+      <h3>Download Our App</h3>
+      <p>Download App for Android and iOS mobile phones.</p>
+      <div class="app-logo">
+        <img src="images/play-store.png" alt="Play Store">
+        <img src="images/app-store.png" alt="App Store">
+      </div>
+    </div>
+
+    <div class="footer-col-2">
+      <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+    </div>
+    <br>
+
+<div style="width: 100%; display: flex; justify-content: center; background-color: #222;">
+
+  <div id="flexfoot" style="display: flex; justify-content: space-around; padding: 30px; background-color: #222; color: white; font-family: Arial, sans-serif; max-width: 900px; width: 100%;">
+
+    
+    <div class="footer-col-3" style="flex: 1; margin: 0 20px;">
+      <h3 style="margin-bottom: 15px; font-size: 18px; color: #fff;">Useful Links</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Coupons</a></li><br>
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Blog Post</a></li><br>
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Return Policy</a></li><br>
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Join Affiliate</a></li>
+      </ul>
+    </div>
+
+
+    <div class="footer-col-4" style="flex: 1; margin: 0 20px;">
+      <h3 style="margin-bottom: 15px; font-size: 18px; color: #fff;">Follow Us</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://www.facebook.com/login/" target="_blank" style="text-decoration: none; color: #ccc;">Facebook</a></li><br>
+        <li><a href="https://www.instagram.com/accounts/login/" target="_blank" style="text-decoration: none; color: #ccc;">Instagram</a></li><br>
+        <li><a href="https://twitter.com/login" target="_blank" style="text-decoration: none; color: #ccc;">Twitter</a></li><br>
+        <li><a href="https://accounts.google.com/ServiceLogin?service=youtube" target="_blank" style="text-decoration: none; color: #ccc;">YouTube</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+
+</div>
+  <hr>
+  <p class="copyright">&copy; 2025 Redstore Athletic Choice. All rights reserved.</p>
+</footer>
+
+<!---------------------- js for toggle menu --------------------->
+
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+    MenuItems.style.maxHeight = "0px";
+
+    function toggleMenu(){
+        if(MenuItems.style.maxHeight == "0px")
+        {
+            MenuItems.style.maxHeight = "200px";
+        }
+        else
+        {
+            MenuItems.style.maxHeight = "0px";
+        }
+    }
+</script>
+</body>
+</html>

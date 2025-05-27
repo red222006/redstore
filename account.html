@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account | Red Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li> <a href="index.html">Home</a></li>
+                    <li> <a href="product.html">Products</a></li>
+                    <li> <a href="about.html">About</a></li>
+                    <li> <a href="contact.html">Contact</a></li>
+                    <li> <a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            
+            <img src="images/menu.png" class="menu-icon" onclick="toggleMenu()">
+        </div>
+    </div>
+
+
+
+   <!---------------------------account page------------------------------->
+
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/image1.png" width="100%">
+                </div>
+
+                <div class="col-2">
+                    <div class="form-container">
+                    <div class="form-btn">
+                        <span onclick="login()">Login</span>
+                        <span onclick="register()">Register</span>
+                        <hr id="Indicator">
+                    </div>
+                    
+
+                    <!-- LOGIN FORM -->
+<form id="LoginForm" onsubmit="handleLogin(event)">
+    <input type="email" id="login-email" placeholder="Email" required>
+    <input type="password" id="login-password" placeholder="Password" required>
+    <button type="submit" class="btn">Login</button>
+    <a href="#">Forgot Password?</a>
+</form>
+
+
+<!-- REGISTER FORM -->
+<form id="RegForm" onsubmit="handleRegister(event)">
+    <input type="text" id="register-username" placeholder="Username" required>
+    <input type="email" id="register-email" placeholder="Email" required>
+    <input type="password" id="register-password" placeholder="Password" required>
+    <button type="submit" class="btn">Register</button> 
+</form>
+
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!--------------------------------- footer --------------------------------->
+    <footer class="footer">
+  <div class="footer-logo-center">
+    <img src="images/logo-white.png" alt="Redstore Logo">
+  </div>
+
+  <div class="container">
+    <div class="footer-col-1">
+      <h3>Download Our App</h3>
+      <p>Download App for Android and iOS mobile phones.</p>
+      <div class="app-logo">
+        <img src="images/play-store.png" alt="Play Store">
+        <img src="images/app-store.png" alt="App Store">
+      </div>
+    </div>
+
+    <div class="footer-col-2">
+      <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+    </div>
+    <br>
+
+<div style="width: 100%; display: flex; justify-content: center; background-color: #222;">
+
+  <div id="flexfoot" style="display: flex; justify-content: space-around; padding: 30px; background-color: #222; color: white; font-family: Arial, sans-serif; max-width: 900px; width: 100%;">
+
+  
+    <div class="footer-col-3" style="flex: 1; margin: 0 20px;">
+      <h3 style="margin-bottom: 15px; font-size: 18px; color: #fff;">Useful Links</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Coupons</a></li><br>
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Blog Post</a></li><br>
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Return Policy</a></li><br>
+        <li><a href="#" style="text-decoration: none; color: #ccc;">Join Affiliate</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="footer-col-4" style="flex: 1; margin: 0 20px;">
+      <h3 style="margin-bottom: 15px; font-size: 18px; color: #fff;">Follow Us</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="https://www.facebook.com/login/" target="_blank" style="text-decoration: none; color: #ccc;">Facebook</a></li><br>
+        <li><a href="https://www.instagram.com/accounts/login/" target="_blank" style="text-decoration: none; color: #ccc;">Instagram</a></li><br>
+        <li><a href="https://twitter.com/login" target="_blank" style="text-decoration: none; color: #ccc;">Twitter</a></li><br>
+        <li><a href="https://accounts.google.com/ServiceLogin?service=youtube" target="_blank" style="text-decoration: none; color: #ccc;">YouTube</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+<!---------------------- js for toggle menu --------------------->
+
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+
+        function toggleMenu(){
+            if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else
+            {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+        
+    </script>
+
+    <script>
+// Store user data when registering
+function handleRegister(e) {
+    e.preventDefault();
+    const username = document.getElementById('register-username').value.trim();
+    const email = document.getElementById('register-email').value.trim();
+    const password = document.getElementById('register-password').value.trim();
+
+    if (!username || !email || !password) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    // Check if user already exists
+    let users = JSON.parse(localStorage.getItem("users")) || {};
+    if (users[email]) {
+        alert("Account already exists with this email.");
+        return;
+    }
+
+    // Save new user
+    users[email] = { username, password, orders: [] };
+    localStorage.setItem("users", JSON.stringify(users));
+    alert("Registered successfully! You can now log in.");
+    login(); // Switch to login tab
+}
+
+// Log in and show user dashboard
+function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value.trim();
+
+    const password = document.getElementById('login-password').value.trim();
+
+    let users = JSON.parse(localStorage.getItem("users")) || {};
+
+    if (!users[email] || users[email].password !== password) {
+        alert("Invalid login credentials.");
+        return;
+    }
+
+    // Save current user session
+    localStorage.setItem("currentUser", email);
+    alert("Login successful!");
+    showUserDashboard(email);
+}
+
+function showUserDashboard(email) {
+    const users = JSON.parse(localStorage.getItem("users"));
+    const userData = users[email];
+    const profileImage = userData.profileImage || 'images/default-profile.png'; // fallback image
+
+    const container = document.querySelector('.account-page .container');
+
+    container.innerHTML = `
+        <h2>Welcome, ${userData.username}!</h2>
+
+        <div id="profile-section" style="text-align: center;">
+            <img src="${profileImage}" alt="Profile Picture" id="profile-pic" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #555;">
+            <br><br>
+            <input type="file" id="upload-pic" accept="image/*" onchange="handleProfileImageChange(event, '${email}')">
+            <br><br>
+        </div>
+
+        <h3>Your Purchases:</h3>
+        <ul id="purchase-list">
+            ${userData.orders.length === 0 ? '<li>No purchases yet.</li>' :
+                userData.orders.map(order => `<li>${order}</li>`).join('')}
+        </ul>
+
+        <button onclick="logout()">Logout</button>
+    `;
+}
+
+function handleProfileImageChange(event, email) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const users = JSON.parse(localStorage.getItem("users"));
+            users[email].profileImage = e.target.result;
+            localStorage.setItem("users", JSON.stringify(users));
+            document.getElementById('profile-pic').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    location.reload();
+}
+
+// Optional: Auto-login if session exists
+window.addEventListener("DOMContentLoaded", () => {
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser) {
+        showUserDashboard(currentUser);
+    }
+});
+
+function handleProfileImageChange(event, email) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const users = JSON.parse(localStorage.getItem("users"));
+        users[email].profileImage = e.target.result; // base64
+        localStorage.setItem("users", JSON.stringify(users));
+        showUserDashboard(email);
+    };
+    reader.readAsDataURL(file);
+}
+
+</script>
+
+
+    <!---------------------- js for toggle menu--------------------->
+
+<script>
+    var LoginForm = document.getElementById('LoginForm');
+    var RegForm = document.getElementById('RegForm');
+    var Indicator = document.getElementById('Indicator');
+    
+   
+    function register(){
+        RegForm.style.transform = "translateX(0px)";
+        LoginForm.style.transform = "translateX(0px)";
+        Indicator.style.transform = "translateX(100px)";
+    }
+
+    function login(){
+        RegForm.style.transform = "translateX(300px)";
+        LoginForm.style.transform = "translateX(300px)";
+        Indicator.style.transform = "translateX(0px)";
+    }
+
+    
+    </script>
+</body>
+</html>

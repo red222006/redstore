@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Cart/Checkut | Red Store</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      width: 100%;
+      margin-top: 30px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    .btn-remove, .btn-checkout {
+      padding: 6px 12px;
+      background-color: crimson;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .btn-checkout {
+      background-color: darkorange;
+      margin-top: 20px;
+    }
+    .checkout-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .checkout-total {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .thank-you {
+      text-align: center;
+      margin-top: 30px;
+      display: none;
+    }
+    .thank-you button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .form-section {
+      margin-top: 30px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .form-section h3 {
+      margin-bottom: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group input {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.png" width="125px"></a>
+    </div>
+
+    <nav>
+      <ul id="MenuItems">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="account.html">Account</a></li>
+      </ul>
+    </nav>
+    <img src="images/menu.png" class="menu-icon" onclick="toggleMenu()">
+  </div>
+</div>
+
+<div class="container">
+  <div class="checkout-header">
+    <h2>Cart</h2>
+    <div class="cart-count" id="cart-count">🛒 0</div>
+  </div>
+
+  <table id="cart-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="checkout-total" id="cart-total">Total: ₱0.00</div>
+
+  <div class="form-section">
+    <h3>Customer Information</h3>
+    <div class="form-group">
+      <input type="text" id="cust-name" placeholder="Full Name">
+    </div>
+    <div class="form-group">
+      <input type="text" id="cust-address" placeholder="Address">
+    </div>
+    <div class="form-group">
+      <input type="tel" id="cust-phone" placeholder="Phone Number">
+    </div>
+    <div class="form-group">
+      <input type="email" id="cust-email" placeholder="Email Address">
+    </div>
+    <button class="btn-checkout" onclick="checkout()">✅ Confirm Checkout</button>
+  </div>
+
+  <div class="thank-you" id="thank-you">
+    <h1>Thank You for Your Order!</h1>
+        <p>Your order has been received and is now being processed. <br>
+        You’ll receive a confirmation message shortly, and we’ll prepare your parcel for delivery Via COD.</p>
+        <button onclick="window.location.href='product.html'">Keep Shopping</button>
+  </div>
+</div>
+
+<script>
+
+var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+
+        function toggleMenu(){
+            if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else
+            {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+    
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function renderCart() {
+  const tbody = document.querySelector('#cart-table tbody');
+  const cartCount = document.getElementById('cart-count');
+  tbody.innerHTML = '';
+
+  let total = 0;
+  let totalItems = 0;
+
+  if (cart.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
+    document.getElementById('cart-total').innerText = 'Total: ₱0.00';
+    cartCount.innerText = `🛒 0`;
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+    totalItems += item.quantity;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${item.name}</td>
+      <td>₱${item.price.toFixed(2)}</td>
+      <td>
+        <input type="number" min="1" value="${item.quantity}" onchange="updateQty(${index}, this.value)" style="width: 50px;">
+      </td>
+      <td>₱${itemTotal.toFixed(2)}</td>
+      <td><button class="btn-remove" onclick="removeItem(${index})">Remove</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('cart-total').innerText = 'Total: ₱' + total.toFixed(2);
+  cartCount.innerText = `🛒 ${totalItems}`;
+}
+
+function updateQty(index, newQty) {
+  newQty = parseInt(newQty);
+  if (isNaN(newQty) || newQty < 1) return;
+  cart[index].quantity = newQty;
+  saveCart();
+  renderCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  saveCart();
+  renderCart();
+}
+
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function checkout() {
+  const name = document.getElementById('cust-name').value.trim();
+  const address = document.getElementById('cust-address').value.trim();
+  const phone = document.getElementById('cust-phone').value.trim();
+  const email = document.getElementById('cust-email').value.trim();
+
+  if (!name || !address || !phone || !email) {
+    alert('Please fill in all customer information fields before checkout.');
+    return;
+  }
+
+  if (cart.length === 0) {
+    alert('Your cart is empty!');
+    return;
+  }
+
+  // You could store the customer data or send it to a backend here
+  console.log("Customer Info:", { name, address, phone, email });
+
+  cart = [];
+  saveCart();
+  renderCart();
+
+  document.querySelector('.form-section').style.display = 'none';
+  document.getElementById('thank-you').style.display = 'block';
+}
+
+renderCart();
+
+const currentUser = localStorage.getItem("currentUser");
+if (currentUser) {
+    let users = JSON.parse(localStorage.getItem("users"));
+    let user = users[currentUser];
+
+    // Add order description
+    let orderDescription = `Ordered ${cart.length} item(s) on ${new Date().toLocaleString()}`;
+    user.orders.push(orderDescription);
+
+    users[currentUser] = user;
+    localStorage.setItem("users", JSON.stringify(users));
+}
+    
+</script>
+
+</body>
+</html>
